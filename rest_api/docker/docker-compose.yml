@@ -12,3 +12,10 @@ services:
     volumes:
       - ./db/tables.sql:/docker-entrypoint-initdb.d/1.sql
       - ./db/data.sql:/docker-entrypoint-initdb.d/2.sql
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+        - 5673:5672
+        - 15673:15672
