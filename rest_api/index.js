@@ -1,5 +1,10 @@
 const app = require('./app')
 const port = 3000
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+
+const server = app.listen(port)
+process.on('SIGTERM', () => {
+  console.log('SIGTERM signal received: closing HTTP server')
+  server.close(() => {
+    console.log('HTTP server closed')
+  })
 })
