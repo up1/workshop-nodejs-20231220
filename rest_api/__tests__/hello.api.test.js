@@ -2,7 +2,7 @@ const request = require('supertest')
 const nock = require('nock')
 const app = require('../app')
 
-afterEach(() => {   
+afterEach(() => {
     nock.cleanAll()
 });
 
@@ -25,7 +25,11 @@ test("Success case with /hello", async () => {
 });
 
 test("Error 500 case with /hello", async () => {
+    // Mocking external api with fail
+    nock('https://jsonplaceholder.typicode.com')
+        .get('/users/1')
+        .replyWithError('API error')
     const response = await request(app).get('/hello')
     expect(response.status).toEqual(500);
-    expect(response.body.message).toEqual('Error');
+    expect(response.body.message).toEqual('Error API error');
 });
