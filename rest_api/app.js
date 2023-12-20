@@ -10,12 +10,11 @@ app.get('/hello', async (req, res, next) => {
         res.json({ message: 'Hello World with ' + response.data.name })
     } catch (error) {
         next(error)
-        // res.status(500).json({ message: 'Error ' + error.message })
     }
 })
 
-app.use((error, req, res, next) => {
-    res.status(500).json({ message: 'Error ' + error.message })
-})
+// Error handler
+const middlewares = require('./middlewares')
+app.use(middlewares.errorHandler)
 
 module.exports = app
