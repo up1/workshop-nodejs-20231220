@@ -9,6 +9,6 @@ test("Success case with /hello", async () => {
 
     // Step 3 :: Verify response (200, message=Hello World!)
     expect(response.status).toEqual(200);
-    expect(response.body.message).toEqual('Hello World!');
-    expect(response.body).toEqual({message: 'Hello World!'});
+    expect(response.body.message).toEqual('Hello World with Somkiat');
+    expect(response.body).toEqual({message: 'Hello World with Somkiat'});
 });
