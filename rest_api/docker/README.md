@@ -11,6 +11,6 @@ $docker compose up -d rabbitmq
 ```
 
 Access to rabbitmq admin
-* http://localhost:15673
+* http://localhost:15672
   * user=guest
   * password=guest
