@@ -4,9 +4,9 @@ function hi(name) {
 
 const hi2 = (name) => {
     return `Say hi ${name}`;
-}
+};
 
 module.exports = {
     hi,
-    hi2
-}
+    hi2,
+};

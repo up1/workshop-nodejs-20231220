@@ -9,6 +9,6 @@ console.log(hello.hi2("Somkiat"));
 // ===  compare value and type
 let x = 1;
 x = "dddd";
-x = 1.0000123
+x = 1.0000123;
 x = true;
 console.log(x);
