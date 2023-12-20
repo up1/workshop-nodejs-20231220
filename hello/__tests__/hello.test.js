@@ -8,7 +8,7 @@ test('Hello Test 1', () => {
 
 describe('Hello Test 2', () => {
     it('should say hi demo', () => {
-        const result = hello.hi('demo')
+        const result = hello.hi2('demo')
         expect(result).toBe('Say hi demo')
     })
 })
