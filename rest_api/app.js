@@ -9,7 +9,10 @@ app.get('/hello', async (req, res, next) => {
         // Success
         res.json({ message: 'Hello World with ' + response.data.name })
     } catch (error) {
-        next(error)
+        let e = new Error('Error from external api');
+        e.status = 500;
+        e.message = error.message;
+        next(e)
     }
 })
 
