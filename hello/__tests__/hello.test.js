@@ -1,4 +1,7 @@
+const hello = require('../hello');
+
 test('Hello Test', () => {
     // Compare = expect, assert, should
-    expect(1).toBe(1);
+    const result = hello.hi("demo");
+    expect(result).toBe("Say hi demo");
 });
