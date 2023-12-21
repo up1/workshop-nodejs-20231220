@@ -14,11 +14,20 @@ const myFunction = (name) => {
 
 const db = require('./database')
 
+/**
+ * @typedef
+ * @property {string} message.required - Message from database
+ */
+const myResponse = { 
+    message: '' 
+};
+
 router.get('/db', async (req, res, next) => {
     // Get data from postgresql
     try {
         const response = await db.getMessage(); 
-        res.json({ message: response.rows[0].message })
+        myResponse.message = response.rows[0].message;
+        res.json(myResponse)
     } catch (error) {
         let e = new Error('Error from database');
         e.status = 500;
