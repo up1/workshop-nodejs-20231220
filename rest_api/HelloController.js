@@ -12,6 +12,21 @@ const myFunction = (name) => {
     return 'Hello World ' + name;
 }
 
+const db = require('./database')
+
+router.get('/db', async (req, res, next) => {
+    // Get data from postgresql
+    try {
+        const response = await db.getMessage(); 
+        res.json({ message: response.rows[0].message })
+    } catch (error) {
+        let e = new Error('Error from database');
+        e.status = 500;
+        e.message = error.message;
+        next(e)
+    }
+})
+
 router.get('/', async (req, res, next) => {
     myFunction(1)
     // Call external api with axios
