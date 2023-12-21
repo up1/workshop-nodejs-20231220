@@ -13,6 +13,9 @@ const getMessage = async (request, response, next) => {
         const res = await pool.query('SELECT * FROM messages');
         return res;
     } catch (error){
+        // Exception tracking
+        // https://docs.sentry.io/platforms/node/express/
+
         throw error;
     }
 };
