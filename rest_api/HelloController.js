@@ -22,12 +22,18 @@ const myResponse = {
     message: '' 
 };
 
+class MyResponse {
+    constructor(message) {
+        this.message = message;
+    }
+}
+
 router.get('/db', async (req, res, next) => {
     // Get data from postgresql
     try {
         const response = await db.getMessage(); 
-        myResponse.message = response.rows[0].message;
-        res.json(myResponse)
+        const result = new MyResponse(response.rows[0].message);
+        res.json(result)
     } catch (error) {
         let e = new Error('Error from database');
         e.status = 500;
