@@ -7,7 +7,7 @@ const queue = "my_data";
     const channel = await connection.createChannel()
 
     process.once("SIGINT", async () => {
-        console.log(" [*] Closing connection...");
+      console.log(" [*] Closing connection...");
       await channel.close()
       await connection.close()
     });

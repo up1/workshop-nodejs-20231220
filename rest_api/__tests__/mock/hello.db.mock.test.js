@@ -1,5 +1,5 @@
 const request = require("supertest");
-const app = require("../app");
+const app = require("../../app");
 
 const pg = require('pg');
 jest.mock('pg', () => {
@@ -19,7 +19,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-const db = require('../database')
+const db = require('../../database')
 
 test("Hello api GET /hello with mock", async() => {
   // Mock

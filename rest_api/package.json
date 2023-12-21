@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest --coverage --detectOpenHandles --forceExit",
+    "test:integration": "jest --testPathPattern=__tests__/integration --coverage --detectOpenHandles --forceExit",
+    "test:mock": "jest --testPathPattern=__tests__/mock --coverage --detectOpenHandles --forceExit",
     "consumer": "node messaging/consumer"
   },
   "author": "",

@@ -1,4 +1,4 @@
-const db = require('../database')
+const db = require('../../database')
 
 test("Try to connect postgres database", async () => {
      const res = await db.getMessage()
